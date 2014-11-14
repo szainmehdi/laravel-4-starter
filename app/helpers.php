@@ -85,3 +85,12 @@ function view($name) {
 function subdomain($str) {
     return $str . '.' . Config::get('app.domain');
 }
+
+
+function redirect_back_or_to($default_route, $route_params = [], $code = 302, $headers = []) {
+    try {
+        return Redirect::back($code, $headers);
+    } catch (InvalidArgumentException $e) {
+        return Redirect::route($default_route, $route_params, $code, $headers);
+    }
+}

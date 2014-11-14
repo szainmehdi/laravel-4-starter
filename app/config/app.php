@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Auth\Permission;
+use App\Models\Auth\Role;
+
 return [
 
     /*
@@ -204,6 +207,10 @@ return [
         'Flash' => 'Laracasts\Flash\Flash',
         'Gravatar' => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',
         'Image' => 'Intervention\Image\Facades\Image',
+
+        // Our own aliases
+        'Role' => Role::class,
+        'Permission' => Permission::class,
     ],
 
 ];
