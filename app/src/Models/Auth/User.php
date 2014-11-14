@@ -1,4 +1,4 @@
-<?php namespace App\Entities\Auth;
+<?php namespace App\Models\Auth;
 
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Confide\ConfideUserInterface;
