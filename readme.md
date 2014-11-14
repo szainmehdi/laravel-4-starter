@@ -19,7 +19,17 @@ This project is my base for most of my own laravel projects. If you find it usef
         - jasny-bootstrap
         - bootbox
 - Composer
-    
+    - Eloquent Sluggable
+    - Confide & Entrust
+    - PHP Enum
+    - Flash Messages
+    - Gravatar
+    - Intervention Image Manipulation
+    - -- *dev* --
+    - Way/Generators
+    - Faker
+    - PHPUnit
+    - Laravel Debugbar
 
 ## Laravel PHP Framework
 
