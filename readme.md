@@ -25,8 +25,10 @@ This project is my base for most of my own laravel projects. If you find it usef
     - Flash Messages
     - Gravatar
     - Intervention Image Manipulation
+    - Ardent Validator
     - -- *dev* --
     - Way/Generators
+    - Laravel PHPStorm IDE Helper
     - Faker
     - PHPUnit
     - Laravel Debugbar

@@ -15,3 +15,9 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+// Confide RESTful route
+Route::get('users/confirm/{code}', 'UsersController@getConfirm');
+Route::get('users/reset_password/{token}', 'UsersController@getReset');
+Route::get('users/reset_password', 'UsersController@postReset');
+Route::controller('users', 'UsersController');
