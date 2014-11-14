@@ -28,6 +28,8 @@ return [
 
     'url' => 'http://localhost',
 
+    'domain' => 'laravel.app',
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

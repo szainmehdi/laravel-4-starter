@@ -1,6 +1,6 @@
-<?php
+<?php namespace App\Controllers;
 
-class BaseController extends Controller {
+class BaseController extends \Controller {
 
 	/**
 	 * Setup the layout used by the controller.
@@ -11,7 +11,7 @@ class BaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout);
+            $this->layout = view($this->layout);
 		}
 	}
 

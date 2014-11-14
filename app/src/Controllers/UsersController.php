@@ -1,25 +1,32 @@
-<?php
+<?php namespace App\Controllers;
 
+use App;
+use Confide;
+use Config;
+use Input;
+use Lang;
+use Mail;
+use Redirect;
 
 /**
  * UsersController Class
  * Implements actions regarding user management
  */
-class UsersController extends Controller {
+class UsersController extends BaseController {
 
     /**
      * Displays the form for account creation
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function getCreate() {
-        return View::make(Config::get('confide::signup_form'));
+        return view(Config::get('confide::signup_form'));
     }
 
     /**
      * Stores new account
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function postIndex() {
         $repo = App::make('App\Entities\Auth\UserRepository');
@@ -53,20 +60,20 @@ class UsersController extends Controller {
     /**
      * Displays the login form
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function getLogin() {
         if (Confide::user()) {
             return Redirect::to('/');
         } else {
-            return View::make(Config::get('confide::login_form'));
+            return view(Config::get('confide::login_form'));
         }
     }
 
     /**
      * Attempt to do login
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function postLogin() {
         $repo = App::make('App\Entities\Auth\UserRepository');
@@ -94,7 +101,7 @@ class UsersController extends Controller {
      *
      * @param  string $code
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function getConfirm($code) {
         if (Confide::confirm($code)) {
@@ -111,16 +118,16 @@ class UsersController extends Controller {
     /**
      * Displays the forgot password form
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function getForgot() {
-        return View::make(Config::get('confide::forgot_password_form'));
+        return view(Config::get('confide::forgot_password_form'));
     }
 
     /**
      * Attempt to send change password link to the given email
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function postForgot() {
         if (Confide::forgotPassword(Input::get('email'))) {
@@ -140,17 +147,17 @@ class UsersController extends Controller {
      *
      * @param  string $token
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function getReset($token) {
-        return View::make(Config::get('confide::reset_password_form'))
+        return view(Config::get('confide::reset_password_form'))
             ->with('token', $token);
     }
 
     /**
      * Attempt change password of the user
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function postReset() {
         $repo = App::make('App\Entities\Auth\UserRepository');
@@ -176,7 +183,7 @@ class UsersController extends Controller {
     /**
      * Log the user out of the application.
      *
-     * @return  Illuminate\Http\Response
+     * @return  \Illuminate\Http\Response
      */
     public function getLogout() {
         Confide::logout();
