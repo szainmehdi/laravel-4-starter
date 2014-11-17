@@ -1,4 +1,4 @@
-<?php namespace AutoAdsToday\Traits;
+<?php namespace App\Traits;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

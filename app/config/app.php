@@ -1,7 +1,10 @@
 <?php
 
+use App\Composers\ViewComposerServiceProvider;
 use App\Models\Auth\Permission;
 use App\Models\Auth\Role;
+use App\Repositories\RepositoryServiceProvider;
+use App\Routing\RouteServiceProvider;
 
 return [
 
@@ -134,6 +137,10 @@ return [
         'Laracasts\Flash\FlashServiceProvider',
         'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+
+        RouteServiceProvider::class,
+        ViewComposerServiceProvider::class,
+        RepositoryServiceProvider::class,
     ],
 
     /*

@@ -1,6 +1,6 @@
-<?php namespace AutoAdsToday\Traits;
+<?php namespace App\Traits;
 
-use AutoAdsToday\Traits\SluggableTraitCustom as Custom;
+use App\Traits\SluggableTraitCustom as Custom;
 use Cviebrock\EloquentSluggable\SluggableTrait as Original;
 
 trait SluggableTrait {

@@ -1,4 +1,4 @@
-<?php namespace AutoAdsToday\Routing;
+<?php namespace App\Routing;
 
 use Illuminate\Routing\Router as IlluminateRouter;
 use Str;

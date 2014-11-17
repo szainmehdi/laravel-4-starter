@@ -1,4 +1,4 @@
-<?php namespace AutoAdsToday\Routing;
+<?php namespace App\Routing;
 
 use Illuminate\Support\ServiceProvider;
 
