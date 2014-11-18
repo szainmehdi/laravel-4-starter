@@ -1,9 +1,9 @@
-<?php namespace App\Repositories\Role;
+<?php namespace App\Repositories\Permission;
 
 use App\Repositories\EloquentRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class EloquentRoleRepository extends EloquentRepository implements RoleRepository
+class EloquentPermissionRepository extends EloquentRepository implements PermissionRepository
 {
 
     /**
