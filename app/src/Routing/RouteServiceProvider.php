@@ -13,7 +13,6 @@ class RouteServiceProvider extends ServiceProvider {
         /** @var \Illuminate\Routing\Router $router */
         $router = $this->app['router'];
 
-        (new FrontendRouter())->register($router);
-
+        (new FrontendRouter($router))->register();
     }
 }

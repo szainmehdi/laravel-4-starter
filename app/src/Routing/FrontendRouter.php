@@ -7,12 +7,16 @@ class FrontendRouter extends Router {
     /**
      * Register routes.
      *
-     * @param IlluminateRouter $router
-     *
      * @return mixed
      */
-    public function register(IlluminateRouter $router) {
-        $router->get('/', named_route('home', 'Frontend::HomeController', 'index'));
+    public function register()
+    {
+
+        // Homepage
+        $this->router->get('/', named_route('home', 'Frontend::HomeController', 'index'));
+
+        // Sessions Resource
+        $this->registerResource('sessions', 'SessionsController');
     }
 
 }
