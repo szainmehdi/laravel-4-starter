@@ -7,7 +7,6 @@
 	"require": {
         "laravel/framework": "4.2.*",
         "cviebrock/eloquent-sluggable": "2.*",
-        "zizaco/confide": "~4.0@dev",
         "zizaco/entrust": "1.2.*@dev",
         "myclabs/php-enum": "~1.2",
         "laracasts/flash": "1.2",

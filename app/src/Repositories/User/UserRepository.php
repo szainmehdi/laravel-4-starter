@@ -8,6 +8,6 @@ use App\Repositories\ResourceRepository;
  *
  * @package App\Repositories
  */
-interface UserRepository extends BaseRepository, ResourceRepository {
-
-} 
+interface UserRepository extends BaseRepository, ResourceRepository
+{
+}

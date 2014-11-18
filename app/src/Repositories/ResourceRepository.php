@@ -8,7 +8,6 @@ interface ResourceRepository {
     /**
      * @param array $input
      *
-     * @throws ValidationException
      * @return Model
      */
     public function create(array $input);
@@ -17,9 +16,15 @@ interface ResourceRepository {
      * @param int $id
      * @param array $input
      *
-     * @throws ValidationException
      * @return Model
      */
     public function update($id, array $input);
+
+    /**
+     * @param $id
+     *
+     * @return bool
+     */
+    public function delete($id);
 
 } 

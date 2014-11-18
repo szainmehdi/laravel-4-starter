@@ -12,11 +12,7 @@ class FrontendRouter extends Router {
      * @return mixed
      */
     public function register(IlluminateRouter $router) {
-
-        $router->get('/', function () {
-            return view('hello');
-        });
-
+        $router->get('/', named_route('home', 'Frontend::HomeController', 'index'));
     }
 
 }

@@ -132,7 +132,6 @@ return [
 
         // Installed Packages
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
-        'Zizaco\Confide\ServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
         'Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider',
@@ -209,7 +208,6 @@ return [
         'View' => 'Illuminate\Support\Facades\View',
 
         // Installed Packages
-        'Confide' => 'Zizaco\Confide\Facade',
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
         'Flash' => 'Laracasts\Flash\Flash',
         'Gravatar' => 'Thomaswelton\LaravelGravatar\Facades\Gravatar',

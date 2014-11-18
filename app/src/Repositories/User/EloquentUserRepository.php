@@ -1,9 +1,8 @@
 <?php namespace App\Repositories\User;
 
 use App\Models\Auth\User;
-use App\Repositories\DbRepository;
+use App\Repositories\EloquentRepository;
 use App\Repositories\Role\RoleRepository;
-use App\Validation\ValidationException;
 use Role;
 
 /**
@@ -12,7 +11,8 @@ use Role;
  * @property User $model
  * @package App\Repositories\User
  */
-class EloquentUserRepository extends DbRepository implements UserRepository {
+class EloquentUserRepository extends EloquentRepository implements UserRepository
+{
 
     /**
      * Sort all results by this column
@@ -36,7 +36,8 @@ class EloquentUserRepository extends DbRepository implements UserRepository {
      * @param RoleRepository $roleRepo
      * @param User $model
      */
-    public function __construct(RoleRepository $roleRepo, User $model) {
+    public function __construct(RoleRepository $roleRepo, User $model)
+    {
         parent::__construct($model);
         $this->roleRepo = $roleRepo;
     }
@@ -44,10 +45,10 @@ class EloquentUserRepository extends DbRepository implements UserRepository {
     /**
      * @param array $input
      *
-     * @throws ValidationException
      * @return User|null
      */
-    public function create(array $input) {
+    public function create(array $input)
+    {
         // Create the new dealer and save it.
         $this->model = new User();
 
@@ -56,11 +57,9 @@ class EloquentUserRepository extends DbRepository implements UserRepository {
 
         // Since mass assignment for these fields is not allowed,
         // we'll set these manually.
-        $this->model->username = $input['username'];
         $this->model->email = $input['email'];
         $this->model->password = $input['password'];
         $this->model->password_confirmation = $input['password_confirmation'];
-
 
         $this->model->save();
 
@@ -74,13 +73,33 @@ class EloquentUserRepository extends DbRepository implements UserRepository {
     }
 
     /**
+     * Attempts to login with the given credentials.
+     *
+     * @param $email
+     * @param $password
+     *
+     * @return  boolean
+     */
+    public function login($email, $password)
+    {
+        $this->model = $this->getFirstWhere('email', $email);
+
+        $isPasswordCorrect = \Hash::check($password, $this->model->password);
+
+        if (!$isPasswordCorrect) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * @param int $id
      * @param array $input
      *
-     * @throws ValidationException
      * @return User
      */
-    public function update($id, array $input) {
+    public function update($id, array $input)
+    {
         // Find the dealer we are updating
         $this->model = $this->find($id);
 
@@ -105,9 +124,15 @@ class EloquentUserRepository extends DbRepository implements UserRepository {
     }
 
     /**
-     * @return \Illuminate\Support\MessageBag
+     * Delete the instance of the model.
+     *
+     * @param $id
+     *
+     * @return bool
      */
-    public function errors() {
-        return $this->model->errors();
+    public function delete($id)
+    {
+        $this->model = $this->find($id);
+        return $this->model->delete();
     }
 }

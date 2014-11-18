@@ -8,10 +8,6 @@ use Lang;
 use Mail;
 use Redirect;
 
-/**
- * UsersController Class
- * Implements actions regarding user management
- */
 class UsersController extends BaseController {
 
     /**
