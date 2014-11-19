@@ -1,10 +1,16 @@
 <?php namespace App\Repositories\Role;
 
+use App\Models\Auth\Role;
 use App\Repositories\EloquentRepository;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentRoleRepository extends EloquentRepository implements RoleRepository
 {
+    function __construct(Role $model)
+    {
+        parent::__construct($model);
+    }
+
 
     /**
      * @param array $input
