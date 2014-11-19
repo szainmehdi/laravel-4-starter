@@ -18,42 +18,21 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
+
+		@yield('head')
 	</head>
 
 	<body>
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Project name</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		@include('frontend.partials.navbar')
 
-		<div class="container">
+		<div class="container" id="main-container">
 
-			<div class="starter-template" style="padding: 40px 15px; text-align: center">
-				<h1>Bootstrap starter template</h1>
-
-				<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this
-					text and a mostly barebones HTML document.</p>
-                <p>Check out <code>app/views/layout/frontend.blade.php</code></p>
-			</div>
+            @yield('content')
 
 		</div>
 
 		<script src="/js/frontend.min.js"></script>
+		@yield('scripts')
 	</body>
 </html>
