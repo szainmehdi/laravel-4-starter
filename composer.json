@@ -11,8 +11,7 @@
         "myclabs/php-enum": "~1.2",
         "laracasts/flash": "1.2",
         "thomaswelton/laravel-gravatar": "0.1.0",
-        "intervention/image": "~2.0",
-        "laravelbook/ardent": "2.*"
+        "intervention/image": "~2.0"
 	},
     "require-dev": {
         "way/generators": "2.*",

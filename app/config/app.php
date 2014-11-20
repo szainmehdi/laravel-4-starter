@@ -5,6 +5,7 @@ use App\Models\Auth\Permission;
 use App\Models\Auth\Role;
 use App\Repositories\RepositoryServiceProvider;
 use App\Routing\RouteServiceProvider;
+use App\Validation\ValidationServiceProvider;
 
 return [
 
@@ -140,6 +141,7 @@ return [
         RouteServiceProvider::class,
         ViewComposerServiceProvider::class,
         RepositoryServiceProvider::class,
+        ValidationServiceProvider::class,
     ],
 
     /*

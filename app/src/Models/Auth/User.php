@@ -14,4 +14,14 @@ class User extends \Eloquent
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public static $rules = [
+        'first_name' => 'required|between:2,16',
+        'last_name' => 'required|between:2,16',
+        'email' => 'required|email',
+        'password' => 'required|alpha_num|between:4,8|confirmed',
+    ];
+
+    public static $passwordAttributes = ['password'];
+
+    public $autoHashPasswordAttributes = true;
 }
